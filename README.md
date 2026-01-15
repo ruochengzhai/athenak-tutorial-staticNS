@@ -30,6 +30,10 @@ Then run the executable:
 ```
 Output files are saved under `runs/staticNS/`.
 
+## Use tabulated EOS
+
+We use [PyCompOSE](https://github.com/computationalrelativity/PyCompOSE/tree/master) to generate tabulated EoS (with the `.athtab` extension). Download the files listed in the header of the scripts in [PyCompOSE](https://github.com/computationalrelativity/PyCompOSE/tree/master), including all files from https://compose.obspm.fr, and `.h5` and `.pizza` files from Zenodo. To use the generated EoS tables, set the input argument `dyn_eos = compose`, and add `table = PATH_TO_THE_TABLE` in `<mhd>` and `<problem>` blocks.
+
 ## Plot
 Create a directory for plotting scripts:
 ```
