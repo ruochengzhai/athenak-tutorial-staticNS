@@ -11,6 +11,8 @@ make -j
 ```
 The executable will be created at `build/src/athenak`. The option `-D PROBLEM=dyngr_tov` is to specify the problem generator for the static NS. Problem generator files are located under `src/pgen/`.
 
+To compile with MPI, add the option: `-D Athena_ENABLE_MPI=ON`.
+
 ## Run simulation
 
 First, create an individual directory under the top AthenaK directory for the specific run:
@@ -29,6 +31,11 @@ Then run the executable:
 ../../build/src/athena -i mag_tov.athinput time/nlim=100
 ```
 Output files are saved under `runs/staticNS/`.
+
+To run with MPI:
+```
+mpirun -np 4 ../../build/src/athena -i mag_tov.athinput
+```
 
 ## Use tabulated EOS
 
