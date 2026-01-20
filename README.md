@@ -75,3 +75,6 @@ Use `plot_image.py` from https://github.com/jfields7/plot-tools. Since the gener
 ```
 image = Image("../bin/tov.mhd_w_bcc.00001.bin", extent, "dens", slice_loc=['z', 0.0])
 ```
+<p align="center">
+  <img src="./figures/tov_mhd_w_bcc_density_image.png" alt="Density Slice" width="600">
+</p>
