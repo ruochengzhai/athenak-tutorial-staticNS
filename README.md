@@ -50,7 +50,7 @@ cmake -D Athena_ENABLE_MPI=ON \
       -D Kokkos_ARCH_AMPERE80=ON \
       -D Kokkos_ARCH_ZEN3=ON \
       -D Kokkos_ENABLE_IMPL_CUDA_MALLOC_ASYNC=OFF \
-      -D PROBLEM=dyngr_tov
+      -D PROBLEM=dyngr_tov \
       [Directory of CMakeLists.txt]
 ```
 Run AthenaK in interactive jobs:
@@ -70,7 +70,7 @@ Here `-d` is to use double precision. Add `use_NQT=true` in the `<mhd>` block, t
 
 ## Plot
 
-### Plot a slice
+### Plot a 2-D density slice
 Use `plot_image.py` from https://github.com/jfields7/plot-tools. Since the generated binary files are 3-D, we need to specify a slice location to make a 2-D plot.
 ```
 image = Image("../bin/tov.mhd_w_bcc.00001.bin", extent, "dens", slice_loc=['z', 0.0])
