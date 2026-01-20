@@ -62,14 +62,14 @@ srun [Path to the executable] -i [Path to the parfile] -d [Path to the output di
 
 We use [PyCompOSE](https://github.com/computationalrelativity/PyCompOSE/tree/master) to generate tabulated EoS (with the `.athtab` extension). Download the files listed in the header of the scripts in [PyCompOSE](https://github.com/computationalrelativity/PyCompOSE/tree/master), including all files from https://compose.obspm.fr, and `.h5` and `.pizza` files from Zenodo. To use the generated EoS tables, set the input argument `dyn_eos = compose`, and add `table = PATH_TO_THE_TABLE` (3-D) in the `<mhd>` and `table = PATH_TO_THE_TABLE_SLICE` (at 0 temperature) in the `<problem>` blocks.
 
-[PyCompOSE](https://github.com/computationalrelativity/PyCompOSE/tree/master) offers conversion to EoS tables with not-quite-transcendental functions (see [AthenaK Wiki](https://github.com/IAS-Astrophysics/athenak/wiki/DynGRMHD-Equations-of-State#tables-with-not-quite-transcendental-functions)). It generates an HDF5 table and needs to use this [script](https://github.com/jfields7/table-reader/blob/main/tools/hdf5toathtab.py) to convert to a `.athtab` table. To enable AthenaK to read NQT tables, add `use_NQT=true` in the `<mhd>` block.
+[PyCompOSE](https://github.com/computationalrelativity/PyCompOSE/tree/master) offers conversion to EoS tables with not-quite-transcendental functions (see [AthenaK Wiki](https://github.com/IAS-Astrophysics/athenak/wiki/DynGRMHD-Equations-of-State#tables-with-not-quite-transcendental-functions)). It generates an HDF5 table and needs to use this [script](https://github.com/jfields7/table-reader/blob/main/tools/hdf5toathtab.py) to convert to a `.athtab` table.
+```
+python hdf5toathtab -i [HDF5 table path] -o [Output path] -d
+```
+Here `-d` is to use double precision. Add `use_NQT=true` in the `<mhd>` block, to enable AthenaK to read NQT tables.
 
 ## Plot
-Create a directory for plotting scripts:
-```
-mkdir plots
-cd plots
-```
+
 ### Plot a slice
 Use `plot_image.py` from https://github.com/jfields7/plot-tools. Since the generated binary files are 3-D, we need to specify a slice location to make a 2-D plot.
 ```
