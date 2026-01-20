@@ -15,6 +15,8 @@ To compile with MPI, add the option: `-D Athena_ENABLE_MPI=ON`.
 
 ## Run simulation
 
+### On Mac
+
 First, create an individual directory under the top AthenaK directory for the specific run:
 ```
 mkdir runs
@@ -35,6 +37,25 @@ Output files are saved under `runs/staticNS/`.
 To run with MPI:
 ```
 mpirun -np 4 ../../build/src/athena -i mag_tov.athinput
+```
+
+### On Perlmutter using GPUs
+
+CMake configuration:
+```
+cmake -D Athena_ENABLE_MPI=ON \
+      -D Kokkos_ENABLE_CUDA=ON \
+      -D Kokkos_ENABLE_CUDA_CONSTEXPR=ON \
+      -D Kokkos_ENABLE_CUDA_LAMBDA=ON \
+      -D Kokkos_ARCH_AMPERE80=ON \
+      -D Kokkos_ARCH_ZEN3=ON \
+      -D Kokkos_ENABLE_IMPL_CUDA_MALLOC_ASYNC=OFF \
+      -D PROBLEM=dyngr_tov
+      [Directory of CMakeLists.txt]
+```
+Run AthenaK in interactive jobs:
+```
+srun [Path to the executable] -i [Path to the parfile] -d [Path to the output directory]
 ```
 
 ## Use tabulated EoS
