@@ -1,4 +1,4 @@
-# athenak-tutorial-staticNS
+# Athenak Tutorial: TOV Neutron Star
 
 ## Install AthenaK
 
