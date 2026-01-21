@@ -19,13 +19,13 @@ To compile with MPI, add the option: `-D Athena_ENABLE_MPI=ON`.
 
 First, create an individual directory under the top AthenaK directory for the specific run. Then download the input file `mag_tov.athinput` from this repository to the current directory. Run the executable:
 ```
-[Path to athena] -i mag_tov.athinput -d [Output path]
+[Path to the executable] -i mag_tov.athinput -d [Path to the output directory]
 ```
-Output files are saved under [Output path].
+Output files will be saved under [Path to the output directory].
 
 To run with MPI with 4 ranks:
 ```
-mpirun -np 4 [Path to athena] -i mag_tov.athinput
+mpirun -np 4 [Path to the executable] -i mag_tov.athinput
 ```
 
 ### On Perlmutter using GPUs
