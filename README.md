@@ -17,26 +17,15 @@ To compile with MPI, add the option: `-D Athena_ENABLE_MPI=ON`.
 
 ### On Mac
 
-First, create an individual directory under the top AthenaK directory for the specific run:
+First, create an individual directory under the top AthenaK directory for the specific run. Then download the input file `mag_tov.athinput` from this repository to the current directory. Run the executable:
 ```
-mkdir runs
-cd runs
-mkdir staticNS
-cd staticNS
+[Path to athena] -i mag_tov.athinput -d [Output path]
 ```
-Copy the input file given by AthenaK to the current directory:
-```
-cp ../../inputs/dyngr/mag_tov.athinput ./
-```
-Then run the executable:
-```
-../../build/src/athena -i mag_tov.athinput time/nlim=100
-```
-Output files are saved under `runs/staticNS/`.
+Output files are saved under [Output path].
 
-To run with MPI:
+To run with MPI with 4 ranks:
 ```
-mpirun -np 4 ../../build/src/athena -i mag_tov.athinput
+mpirun -np 4 [Path to athena] -i mag_tov.athinput
 ```
 
 ### On Perlmutter using GPUs
