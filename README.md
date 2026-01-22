@@ -47,6 +47,10 @@ Run AthenaK in interactive jobs:
 srun [Path to the executable] -i [Path to the parfile] -d [Path to the output directory]
 ```
 
+### Rerun
+
+Rerunning AthenaK under the same directory does not remove files generated in the previous run. Remove them if you want to rerun from the initial settings.
+
 ## Use tabulated EoS
 
 We use [PyCompOSE](https://github.com/computationalrelativity/PyCompOSE/tree/master) to generate tabulated EoS (with the `.athtab` extension). Download the files listed in the header of the scripts in [PyCompOSE](https://github.com/computationalrelativity/PyCompOSE/tree/master), including all files from https://compose.obspm.fr, and `.h5` and `.pizza` files from Zenodo. Set the input argument `dyn_eos = compose` and add `table = PATH_TO_THE_TABLE` (3-D) in the `<mhd>` block. Add `table = PATH_TO_THE_TABLE_SLICE` (at 0 temperature) in the `<problem>` block.
