@@ -57,7 +57,7 @@ We use [PyCompOSE](https://github.com/computationalrelativity/PyCompOSE/tree/mas
 
 [PyCompOSE](https://github.com/computationalrelativity/PyCompOSE/tree/master) offers conversion to EoS tables with not-quite-transcendental functions (see [AthenaK Wiki](https://github.com/IAS-Astrophysics/athenak/wiki/DynGRMHD-Equations-of-State#tables-with-not-quite-transcendental-functions)). It generates an HDF5 table and needs to use this [script](https://github.com/jfields7/table-reader/blob/main/tools/hdf5toathtab.py) to convert to a `.athtab` table.
 ```
-python hdf5toathtab -i [HDF5 table path] -o [Output path] -d
+python hdf5toathtab.py -i [HDF5 table path] -o [Output path] -d
 ```
 Here `-d` is to use double precision. Add `use_NQT=true` in the `<mhd>` block, to enable AthenaK to read NQT tables.
 
